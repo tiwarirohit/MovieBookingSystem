@@ -1,0 +1,57 @@
+
+<div class="card" style="width: 500px; margin:0 auto; margin-top: 50px; height: 620px;">
+    <section class="col-md-10 mx-auto mt-4">
+    <form #frm="ngForm" (ngSubmit)="addShow()">
+        <!-- <div class="mt-3"><b>Show ID</b></div>
+        <div><input type="number" placeholder=" Show ID"name="showId" [(ngModel)]="show.showId" required #mlshowId="ngModel" class="form-control"/></div>
+        <div class="alert alert-danger" *ngIf="mlshowId.invalid && mlshowId.touched"> show Id is required</div> -->
+
+       
+        <div class="mt-3"><b>Show Name</b></div>
+        <div><input type="text" name="showName" class="form-control" [(ngModel)]="show.showName" placeholder="Enter Show Name" #Name="ngModel" 
+             required minlength="3" maxlength="20" /></div>
+    
+            <div class="alert alert-danger mt-3" *ngIf="Name.invalid && (Name.touched || Name.dirty)">
+              <div *ngIf="Name.errors.pattern">
+                Special characters not allowed.
+              </div>
+                <div *ngIf="Name.errors.required">
+                  Please enter a show name.
+                </div>
+                <div *ngIf="Name.errors.minlength">
+                    show Name name is too short.
+                </div>
+                <div *ngIf="Name.errors.maxlength"></div>
+            </div>
+          
+        <div>Show Start Time</div>    
+        <div><input type="datetime-local" name="showstartTime" [(ngModel)]="show.showstartTime" required #mlshowstartTime="ngModel" class="form-control"></div>
+        <div class="alert alert-danger" *ngIf="mlshowstartTime.invalid && mlshowstartTime.touched">showstartTime & Date is required</div>
+        
+        <div>Show end Time</div>
+        <div><input type="datetime-local" name="showstartTime" [(ngModel)]="show.showendTime" required #mlshowstartTime="ngModel" class="form-control"></div>
+        <div class="alert alert-danger" *ngIf="mlshowstartTime.invalid && mlshowstartTime.touched">showstartTime & Date is required</div>
+
+        <div>Total NoOf Seats</div>
+        <div><input type="number" placeholder="TotalNoOfSeats" name="theaterCity" [(ngModel)]="show.totalNoOfSeats" required #mltheaterCity="ngModel" class="form-control"/></div>
+        <div class="alert alert-danger" *ngIf="mltheaterCity.invalid && mltheaterCity.touched"> Numbetr is required</div>
+
+        <!-- <div>Seat Price</div>
+        <div><input type="number" placeholder="SeatPrice in Rs" name="theaterCity" [(ngModel)]="show.seats.seatPrice" required #mltheaterCity="ngModel" class="form-control"/></div>
+        <div class="alert alert-danger" *ngIf="mltheaterCity.invalid && mltheaterCity.touched"> Numbetr is required</div> -->
+
+        <div>Movie Id</div>
+        <div><input type="number" placeholder="Movie Id" name="theaterCity" [(ngModel)]="show.movieRef.movieId" required #mltheaterCity="ngModel" class="form-control"/></div>
+        <div class="alert alert-danger" *ngIf="mltheaterCity.invalid && mltheaterCity.touched"> Numbetr is required</div>
+
+        <div>Theater Id</div>
+        <div><input type="number" placeholder="Theater ID" name="theaterCity" [(ngModel)]="show.theater.theaterId" required #mltheaterCity="ngModel" class="form-control"/></div>
+        <div class="alert alert-danger" *ngIf="mltheaterCity.invalid && mltheaterCity.touched"> Numbetr is required</div>
+
+        
+            
+        <div class="mt-3" style="float: right; margin-bottom: 20px;"><input type="submit" [disabled]="!frm.valid" class="btn btn-dark" value="   Add show   " title="Clicking this button will add a show with above information."/></div>
+    </form>
+    </section>
+    </div>
+    
